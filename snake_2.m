@@ -1,3 +1,4 @@
+% 实现二维 snake 算法，加入曲线厚度光滑的约束
 function [y1, y2] = snake_2(x, y1, y2, edge_map, alpha, mu, delta_t, iter)
     y1 = reshape(y1,[],1);
     y2 = reshape(y2,[],1);
