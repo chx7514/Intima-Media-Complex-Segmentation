@@ -1,6 +1,9 @@
-function [x, y] = dp(I, edge_map, lam, type, bias, range0)
 % dynamic programming for edge detection
+function [x, y] = dp(I, edge_map, lam, type, bias, range0)
 % given image I, edge map and lambda
+% type == 0, whole image
+% type == 1, (range0 + bias, down)
+% type == 2, (top, range0 + bias)
     [M, N] = size(I);
     x = 1 : N;
     y = zeros(1, N);
