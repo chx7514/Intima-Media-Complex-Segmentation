@@ -20,9 +20,10 @@ figure;imshow(I,[]);hold on;
 % rough_edge_map = get_edge_map(I, 11, 11, 0);
 % edge_map = get_edge_map(I, 5, 1, 0);
 
+% rough_edge_map 使用大卷积核，用于得到整体曲线的位置，以区分开上下曲线
+% edge_map 使用小卷积核，以识别上下曲线
 rough_edge_map = get_edge_map(I, 7);
 edge_map = get_edge_map(I, 0.5);
-
 
 % dynamic programming for the complex
 lam = 0.1;
@@ -30,6 +31,7 @@ lam = 0.1;
 figure;imshow(I,[]);hold on;
 plot(x, rough_y, 'b');
 
+% 分别在上下半区得到曲线
 [~, up_y] = dp(I, edge_map, lam, 2, rough_y, -3);
 [~, down_y] = dp(I, edge_map, lam, 1, rough_y, 1);
 
