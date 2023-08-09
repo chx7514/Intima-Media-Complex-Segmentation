@@ -1,3 +1,6 @@
+% 使用两种方法定义厚度。首先选择上下曲线横坐标相同的点，求其梯度并对两者求平均
+% 然后从上曲线的点或下曲线的点或中点出发，求其到另一端的距离，即为此处的厚度
+% 在此代码中仅实现从上点和下点出发的方法
 function [thickness] = get_thickness(up, down, mode)
     up = reshape(up,[],1);
     down = reshape(down,[],1);
